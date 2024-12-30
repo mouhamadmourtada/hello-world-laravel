@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="200px" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M100,0 C155.228,0 200,44.772 200,100 C200,155.228 155.228,200 100,200 C44.772,200 0,155.228 0,100 C0,44.772 44.772,0 100,0 Z" fill="#0EA5E9"/>
+        <path d="M65,80 L135,80 C137.761,80 140,82.239 140,85 L140,150 C140,152.761 137.761,155 135,155 L65,155 C62.239,155 60,152.761 60,150 L60,85 C60,82.239 62.239,80 65,80 Z M70,90 L70,145 L130,145 L130,90 L70,90 Z" fill="#FFFFFF"/>
+        <path d="M85,45 L115,45 C117.761,45 120,47.239 120,50 L120,80 L80,80 L80,50 C80,47.239 82.239,45 85,45 Z" fill="#FFFFFF"/>
+        <rect fill="#FFFFFF" x="80" y="100" width="15" height="15" rx="2"/>
+        <rect fill="#FFFFFF" x="105" y="100" width="15" height="15" rx="2"/>
+        <rect fill="#FFFFFF" x="80" y="120" width="15" height="15" rx="2"/>
+        <rect fill="#FFFFFF" x="105" y="120" width="15" height="15" rx="2"/>
+    </g>
+</svg>

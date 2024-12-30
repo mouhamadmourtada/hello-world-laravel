@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="600px" viewBox="0 0 800 600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <!-- Building -->
+        <rect fill="#FFFFFF" x="200" y="100" width="400" height="450" rx="8"/>
+        
+        <!-- Windows -->
+        <g transform="translate(250, 150)" fill="#E0F2FE">
+            <rect x="0" y="0" width="60" height="80" rx="4"/>
+            <rect x="100" y="0" width="60" height="80" rx="4"/>
+            <rect x="200" y="0" width="60" height="80" rx="4"/>
+            
+            <rect x="0" y="100" width="60" height="80" rx="4"/>
+            <rect x="100" y="100" width="60" height="80" rx="4"/>
+            <rect x="200" y="100" width="60" height="80" rx="4"/>
+            
+            <rect x="0" y="200" width="60" height="80" rx="4"/>
+            <rect x="100" y="200" width="60" height="80" rx="4"/>
+            <rect x="200" y="200" width="60" height="80" rx="4"/>
+        </g>
+        
+        <!-- Entrance -->
+        <rect fill="#0EA5E9" x="350" y="450" width="100" height="100" rx="4"/>
+        <rect fill="#FFFFFF" x="370" y="470" width="60" height="80" rx="4"/>
+        
+        <!-- Roof -->
+        <path d="M180,100 L400,20 L620,100 Z" fill="#0EA5E9"/>
+        
+        <!-- Stars -->
+        <g fill="#FAE8FF">
+            <circle cx="150" cy="80" r="4"/>
+            <circle cx="650" cy="120" r="4"/>
+            <circle cx="400" cy="40" r="4"/>
+            <circle cx="200" cy="150" r="4"/>
+            <circle cx="600" cy="180" r="4"/>
+        </g>
+    </g>
+</svg>
