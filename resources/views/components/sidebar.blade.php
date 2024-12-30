@@ -1,106 +1,81 @@
-<div class="flex h-full flex-col bg-slate-800">
+<div class="flex h-full flex-col bg-gradient-to-b from-gray-100 to-white">
     <!-- Logo -->
-    <div class="flex h-24 shrink-0 items-center justify-center border-b border-slate-700 px-6">
-        <img class="h-20 w-auto" src="https://th.bing.com/th/id/R.f46cdcf0479c1dd95c6157914cb5ea3a?rik=48FVKPFZ7vj5UA&pid=ImgRaw&r=0" alt="Logo">
+    <div class="flex h-32 mb-5 p-2 items-center justify-center border-gray-200">
+        <img class="h-16 w-auto filter drop-shadow-lg rounded-full object-cover my-auto" src="https://th.bing.com/th/id/R.f46cdcf0479c1dd95c6157914cb5ea3a?rik=48FVKPFZ7vj5UA&pid=ImgRaw&r=0" alt="Logo">
     </div>
 
+
+    <hr>
+
     <!-- Navigation -->
-    <nav class="flex-1 space-y-0.5 px-3 py-4">
+    <nav class="flex-1 space-y-1 px-3 py-6">
         <!-- Dashboard -->
         <a href="{{ route('dashboard') }}" 
-           class="{{ request()->routeIs('dashboard') ? 'bg-slate-700 text-white' : 'text-slate-300 hover:bg-slate-700 hover:text-white' }} group flex items-center rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200">
-            <i class="ri-dashboard-line mr-3 h-5 w-5 shrink-0"></i>
-            Dashboard
+           class="group flex items-center rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 {{ request()->routeIs('dashboard') ? 'bg-gray-200 text-gray-900' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900' }}">
+            <i class="ri-dashboard-line mr-3 h-5 w-5 shrink-0 transition-transform duration-200 group-hover:scale-110"></i>
+            <span class="font-medium">Dashboard</span>
         </a>
 
         <!-- Logements -->
-        <div x-data="{ open: {{ request()->routeIs('accommodations.*') ? 'true' : 'false' }} }">
-            <button type="button" @click="open = !open" 
-                    class="{{ request()->routeIs('accommodations.*') ? 'bg-slate-700 text-white' : 'text-slate-300 hover:bg-slate-700 hover:text-white' }} group w-full flex items-center rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200">
-                <i class="ri-building-2-line mr-3 h-5 w-5 shrink-0"></i>
-                <span class="flex-1 text-left">Logements</span>
-                <i class="ri-arrow-drop-right-line ml-3 h-5 w-5 transform transition-transform duration-200" :class="{ 'rotate-90': open }"></i>
-            </button>
-            <div x-show="open" 
-                 x-transition:enter="transition ease-out duration-200"
-                 x-transition:enter-start="transform opacity-0 -translate-y-2"
-                 x-transition:enter-end="transform opacity-100 translate-y-0"
-                 x-transition:leave="transition ease-in duration-150"
-                 x-transition:leave-start="transform opacity-100 translate-y-0"
-                 x-transition:leave-end="transform opacity-0 -translate-y-2"
-                 class="mt-1 space-y-1 px-2">
-                <a href="{{ route('accommodations.index') }}" 
-                   class="{{ request()->routeIs('accommodations.index') ? 'bg-slate-600 text-white' : 'text-slate-300 hover:bg-slate-600 hover:text-white' }} group flex items-center rounded-md py-2 pl-11 pr-2 text-sm font-medium transition-colors duration-200">
-                    Liste des logements
-                </a>
-                <a href="{{ route('accommodations.create') }}" 
-                   class="{{ request()->routeIs('accommodations.create') ? 'bg-slate-600 text-white' : 'text-slate-300 hover:bg-slate-600 hover:text-white' }} group flex items-center rounded-md py-2 pl-11 pr-2 text-sm font-medium transition-colors duration-200">
-                    Ajouter un logement
-                </a>
-            </div>
-        </div>
+        <a href="{{ route('accommodations.index') }}" 
+           class="group flex items-center rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 {{ request()->routeIs('accommodations.*') ? 'bg-gray-200 text-gray-900' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900' }}">
+            <i class="ri-building-2-line mr-3 h-5 w-5 shrink-0 transition-transform duration-200 group-hover:scale-110"></i>
+            <span class="font-medium">Logements</span>
+        </a>
+
+        <a href="{{ route('accommodation-types.index') }}" 
+           class="group flex items-center rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 {{ request()->routeIs('accommodation-types.*') ? 'bg-gray-200 text-gray-900' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900' }}">
+            <i class="ri-list-settings-line mr-3 h-5 w-5 shrink-0 transition-transform duration-200 group-hover:scale-110"></i>
+            <span class="font-medium">Types de Logement</span>
+        </a>
 
         <!-- Réservations -->
-        <div x-data="{ open: {{ request()->routeIs('reservations.*') ? 'true' : 'false' }} }">
-            <button type="button" @click="open = !open" 
-                    class="{{ request()->routeIs('reservations.*') ? 'bg-slate-700 text-white' : 'text-slate-300 hover:bg-slate-700 hover:text-white' }} group w-full flex items-center rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200">
-                <i class="ri-calendar-2-line mr-3 h-5 w-5 shrink-0"></i>
-                <span class="flex-1 text-left">Réservations</span>
-                <i class="ri-arrow-drop-right-line ml-3 h-5 w-5 transform transition-transform duration-200" :class="{ 'rotate-90': open }"></i>
-            </button>
-            <div x-show="open"
-                 x-transition:enter="transition ease-out duration-200"
-                 x-transition:enter-start="transform opacity-0 -translate-y-2"
-                 x-transition:enter-end="transform opacity-100 translate-y-0"
-                 x-transition:leave="transition ease-in duration-150"
-                 x-transition:leave-start="transform opacity-100 translate-y-0"
-                 x-transition:leave-end="transform opacity-0 -translate-y-2"
-                 class="mt-1 space-y-1 px-2">
-                <a href="{{ route('reservations.index') }}" 
-                   class="{{ request()->routeIs('reservations.index') ? 'bg-slate-600 text-white' : 'text-slate-300 hover:bg-slate-600 hover:text-white' }} group flex items-center rounded-md py-2 pl-11 pr-2 text-sm font-medium transition-colors duration-200">
-                    Liste des réservations
-                </a>
-                <a href="{{ route('reservations.create') }}" 
-                   class="{{ request()->routeIs('reservations.create') ? 'bg-slate-600 text-white' : 'text-slate-300 hover:bg-slate-600 hover:text-white' }} group flex items-center rounded-md py-2 pl-11 pr-2 text-sm font-medium transition-colors duration-200">
-                    Nouvelle réservation
-                </a>
-            </div>
-        </div>
+        <a href="{{ route('reservations.index') }}" 
+           class="group flex items-center rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 {{ request()->routeIs('reservations.*') ? 'bg-gray-200 text-gray-900' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900' }}">
+            <i class="ri-calendar-2-line mr-3 h-5 w-5 shrink-0 transition-transform duration-200 group-hover:scale-110"></i>
+            <span class="font-medium">Réservations</span>
+        </a>
 
         <!-- Clients -->
         <a href="{{ route('customers.index') }}" 
-           class="{{ request()->routeIs('customers.*') ? 'bg-slate-700 text-white' : 'text-slate-300 hover:bg-slate-700 hover:text-white' }} group flex items-center rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200">
-            <i class="ri-team-line mr-3 h-5 w-5 shrink-0"></i>
-            Clients
+           class="group flex items-center rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 {{ request()->routeIs('customers.*') ? 'bg-gray-200 text-gray-900' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900' }}">
+            <i class="ri-team-line mr-3 h-5 w-5 shrink-0 transition-transform duration-200 group-hover:scale-110"></i>
+            <span class="font-medium">Clients</span>
         </a>
 
         <!-- Services -->
         <a href="{{ route('services.index') }}" 
-           class="{{ request()->routeIs('services.*') ? 'bg-slate-700 text-white' : 'text-slate-300 hover:bg-slate-700 hover:text-white' }} group flex items-center rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200">
-            <i class="ri-customer-service-2-line mr-3 h-5 w-5 shrink-0"></i>
-            Services
+           class="group flex items-center rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 {{ request()->routeIs('services.*') ? 'bg-gray-200 text-gray-900' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900' }}">
+            <i class="ri-customer-service-2-line mr-3 h-5 w-5 shrink-0 transition-transform duration-200 group-hover:scale-110"></i>
+            <span class="font-medium">Services</span>
         </a>
 
-        <!-- tarif -->
+        <!-- Tarifs -->
         <a href="{{ route('rates.index') }}" 
-           class="{{ request()->routeIs('rates.*') ? 'bg-slate-700 text-white' : 'text-slate-300 hover:bg-slate-700 hover:text-white' }} group flex items-center rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200">
-            <i class="ri-money-euro-circle-line mr-2"></i>
-            Forfait
+           class="group flex items-center rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 {{ request()->routeIs('rates.*') ? 'bg-gray-200 text-gray-900' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900' }}">
+            <i class="ri-money-euro-circle-line mr-3 h-5 w-5 shrink-0 transition-transform duration-200 group-hover:scale-110"></i>
+            <span class="font-medium">Forfaits</span>
         </a>
     </nav>
 
     <!-- Profil utilisateur -->
-    <div class="border-t border-slate-700 bg-slate-800 p-4">
+    <div class="border-t border-gray-200 bg-gray-100 p-4">
         <div class="flex items-center gap-3">
-            <img class="h-9 w-9 rounded-full bg-slate-700 ring-2 ring-slate-600" 
-                 src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" 
-                 alt="">
+            <div class="relative">
+                <img class="h-10 w-10 rounded-full object-cover ring-2 ring-gray-300" 
+                     src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" 
+                     alt="">
+                <span class="absolute bottom-0 right-0 block h-2.5 w-2.5 rounded-full bg-emerald-400 ring-2 ring-white"></span>
+            </div>
             <div class="min-w-0 flex-1">
-                <p class="truncate text-sm font-medium text-white">{{ Auth::user()->name }}</p>
+                <p class="truncate text-sm font-medium text-gray-900">{{ Auth::user()->name }}</p>
                 <form method="POST" action="{{ route('logout') }}" class="mt-1">
                     @csrf
-                    <button type="submit" class="text-xs text-slate-400 hover:text-white transition-colors duration-200">
-                        Déconnexion
+                    <button type="submit" class="group text-xs text-gray-500 hover:text-gray-900 transition-colors duration-200">
+                        <span class="inline-flex items-center gap-1">
+                            Déconnexion
+                            <i class="ri-logout-box-r-line opacity-0 -translate-x-2 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0"></i>
+                        </span>
                     </button>
                 </form>
             </div>
